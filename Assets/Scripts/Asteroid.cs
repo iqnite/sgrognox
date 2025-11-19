@@ -1,8 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Obstacle : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
     public float minSize;
     public float maxSize;
     public float minSpeed;
@@ -14,8 +18,12 @@ public class Obstacle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        float randomX = Random.Range(minX, maxX);
+        float randomY = Random.Range(minY, maxY);
+        transform.position = new Vector3(randomX, randomY, transform.position.z);
+
         float randomSize = Random.Range(minSize, maxSize);
-        transform.localScale = new Vector3(randomSize, randomSize, 1);
+        transform.localScale = new Vector3(randomSize, randomSize, transform.localScale.z);
 
         rb = GetComponent<Rigidbody2D>();
 

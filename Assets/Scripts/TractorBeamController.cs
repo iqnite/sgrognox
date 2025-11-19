@@ -50,14 +50,15 @@ public class TractorBeamController : MonoBehaviour
                 capturedObject = collider.gameObject;
             }
         }
+        if (capturedObject == null) return;
+        capturedObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        capturedObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
     }
 
     void UpdateCapturedObject()
     {
         if (capturedObject == null) return;
         capturedObject.transform.position = transform.position;
-        capturedObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-        capturedObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
     }
 
     public void Toggle(bool? value = null)
@@ -87,5 +88,11 @@ public class TractorBeamController : MonoBehaviour
             currentOpacity -= step;
         }
         material.color = new Color(1.0f, 1.0f, 1.0f, currentOpacity);
+    }
+
+    public void ReleaseAll()
+    {
+        capturedObject = null;
+        Toggle(false);
     }
 }

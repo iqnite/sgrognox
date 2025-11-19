@@ -8,12 +8,17 @@ public class PlayerController : MonoBehaviour
     public float thrustForce;
     public float maxSpeed;
     public float rotationAdjustSpeed;
+    public int maxHealth;
+    public int currentHealth;
 
     public GameObject tractorBeam;
+    public ProgressionData progressionData;
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
 
+    float spawnX;
+    float spawnY;
     bool spaceKeyAlreadyPressed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +26,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        currentHealth = maxHealth;
+        spawnX = transform.position.x;
+        spawnY = transform.position.y;
     }
 
     // Update is called once per frame
@@ -83,23 +91,17 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Asteroid"))
         {
-            for (float i = 0; i < 1f; i += 0.2f)
-            {
-                Invoke(nameof(MakeInvisible), i);
-                Invoke(nameof(MakeVisible), i + 0.1f);
-            }
+            currentHealth -= 10;
+        }
+
+        if (currentHealth <= 0)
+        {
+            transform.position = new Vector3(spawnX, spawnY, transform.position.z);
+            currentHealth = maxHealth;
+            tractorBeam.GetComponent<TractorBeamController>().ReleaseAll();
         }
     }
 
-    void MakeInvisible()
-    {
-        spriteRenderer.enabled = false;
-    }
-
-    void MakeVisible()
-    {
-        spriteRenderer.enabled = true;
-    }
 }
