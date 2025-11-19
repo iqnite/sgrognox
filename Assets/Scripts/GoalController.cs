@@ -17,12 +17,12 @@ public class GoalController : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Asteroid"))
+        if (collision.CompareTag("Asteroid"))
         {
             gameManager.score += progressionData.scorePerAsteroid;
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }

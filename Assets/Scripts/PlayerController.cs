@@ -91,9 +91,13 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Asteroid"))
+        switch (collision.gameObject.tag)
         {
-            currentHealth -= 10;
+            case "Asteroid":
+                currentHealth -= 10;
+                break;
+            default:
+                break;
         }
 
         if (currentHealth <= 0)
@@ -104,4 +108,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Goal":
+                currentHealth = maxHealth;
+                break;
+            default:
+                break;
+        }
+    }
 }
