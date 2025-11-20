@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject tractorBeam;
     public ProgressionData progressionData;
+    public TextMeshProUGUI healthText;
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
@@ -118,5 +120,10 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    void LateUpdate()
+    {
+        healthText.text = "Health: " + currentHealth + "%";
     }
 }
