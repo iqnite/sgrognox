@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public LevelData[] levels;
     public GameObject asteroid;
+    public TextMeshProUGUI scoreText;
 
     public int currentLevelIndex = 0;
     public int score = 0;
@@ -17,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        scoreText.text = "Score: " + score;
     }
 
     void Awake()
