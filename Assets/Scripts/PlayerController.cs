@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI healthText;
 
     Rigidbody2D rb;
-    SpriteRenderer spriteRenderer;
 
     float spawnX;
     float spawnY;
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         spawnX = transform.position.x;
         spawnY = transform.position.y;
