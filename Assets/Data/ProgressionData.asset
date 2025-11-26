@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ProgressionData
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionData
   scorePerAsteroid: 10
-  damagePerAsteroid: 10
+  damagePerAsteroid: 1

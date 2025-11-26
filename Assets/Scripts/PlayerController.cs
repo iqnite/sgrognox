@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Asteroid":
-                currentHealth -= 10;
+                currentHealth -= progressionData.damagePerAsteroid;
                 break;
             default:
                 break;
