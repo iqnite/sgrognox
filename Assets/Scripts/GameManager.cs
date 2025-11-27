@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public LevelData[] levels;
+    public GameObject player;
     public GameObject asteroid;
     public TextMeshProUGUI scoreText;
 
@@ -30,7 +31,15 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int levelIndex)
     {
         LevelData levelToLoad = levels[levelIndex];
+        SetupPlayer(levelToLoad.ufoScale);
         SpawnAsteroids(levelToLoad.asteroidCount);
+    }
+
+    void SetupPlayer(float scale)
+    {
+        player.transform.localScale = new Vector3(scale, scale, scale);
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        playerController.currentHealth = playerController.maxHealth;
     }
 
     void SpawnAsteroids(int count)
