@@ -41,7 +41,7 @@ public class TractorBeamController : MonoBehaviour
     {
         if (!isActive || capturedObject != null) return;
         Collider2D[] touchingColliders = new Collider2D[10];
-        int count = beamCollider.Overlap(ContactFilter2D.noFilter, touchingColliders);
+        _ = beamCollider.Overlap(ContactFilter2D.noFilter, touchingColliders);
         foreach (Collider2D collider in touchingColliders)
         {
             if (collider == null) continue;
@@ -51,8 +51,9 @@ public class TractorBeamController : MonoBehaviour
             }
         }
         if (capturedObject == null) return;
-        capturedObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-        capturedObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        Rigidbody2D capturedRb = capturedObject.GetComponent<Rigidbody2D>();
+        capturedRb.linearVelocity = Vector2.zero;
+        capturedRb.angularVelocity = 0f;
     }
 
     void UpdateCapturedObject()
