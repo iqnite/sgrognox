@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Level_00
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelNumber: 0
+  requiredScore: 0
+  ufoScale: 10
   asteroidCount: 500
