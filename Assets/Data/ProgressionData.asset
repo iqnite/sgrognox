@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a0aa5698949a24389a5e572f3e6d49, type: 3}
   m_Name: ProgressionData
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionData
-  scorePerAsteroid: 10
+  scorePerAsteroid: 1
   damagePerAsteroid: 1
