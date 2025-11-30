@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(spawnX, spawnY, transform.position.z);
             currentHealth = maxHealth;
-            tractorBeam.GetComponent<TractorBeamController>().ReleaseAll();
+            tractorBeam.GetComponent<TractorBeamController>().Toggle(false);
         }
     }
 
