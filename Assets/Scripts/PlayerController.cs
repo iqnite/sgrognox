@@ -6,18 +6,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour
 {
+    public GameObject tractorBeam;
+    public ProgressionData progressionData;
+    public TextMeshProUGUI healthText;
     public float thrustForce;
     public float maxSpeed;
     public float rotationAdjustSpeed;
     public int maxHealth;
     public int currentHealth;
 
-    public GameObject tractorBeam;
-    public ProgressionData progressionData;
-    public TextMeshProUGUI healthText;
-
     Rigidbody2D rb;
-
     float spawnX;
     float spawnY;
     bool spaceKeyAlreadyPressed = false;

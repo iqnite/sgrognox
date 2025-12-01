@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject asteroid;
     public TextMeshProUGUI scoreText;
-
     public int currentLevelIndex = 0;
     public int score = 0;
 

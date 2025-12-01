@@ -6,12 +6,12 @@ public class CameraController : MonoBehaviour
     public float maxX;
     public float minY;
     public float maxY;
-
     public GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
     }
 
     // Update is called once per frame

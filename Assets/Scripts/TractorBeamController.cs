@@ -7,10 +7,10 @@ public class TractorBeamController : MonoBehaviour
     public float maxOpacity;
     public float minOpacity;
     public float opacityStep;
+
     GameObject capturedObject = null;
     Collider2D beamCollider;
     Material material;
-
     bool isActive;
     float targetOpacity;
     // Vector3 previousParentPosition;
