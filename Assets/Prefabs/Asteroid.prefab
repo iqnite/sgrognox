@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2522442434462612957}
   - component: {fileID: 4710026061774754676}
   - component: {fileID: 1602707581298435783}
+  - component: {fileID: -2614152019877555856}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Asteroid
@@ -105,7 +106,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -130,7 +131,7 @@ PolygonCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f7816fc0393748a4fb8f52f6fee44325, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -194,3 +195,16 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 100
   maxSpinSpeed: 10
+--- !u!114 &-2614152019877555856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028246701494969803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1a661ab679c9f4f90238d87e44e255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GravityController
+  gravitySettings: {fileID: 11400000, guid: 086351b5f21793c44b5b5d6a1bb46aa0, type: 2}

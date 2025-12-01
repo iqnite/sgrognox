@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: eb1a661ab679c9f4f90238d87e44e255
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gravitySettings: {fileID: 11400000, guid: 086351b5f21793c44b5b5d6a1bb46aa0, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
