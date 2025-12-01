@@ -7,13 +7,15 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject asteroid;
     public TextMeshProUGUI scoreText;
-    public int currentLevelIndex = 0;
-    public int score = 0;
+
+    LevelData CurrentLevel { get => levels[currentLevelIndex]; }
+    int currentLevelIndex = 0;
+    int score = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        LoadLevel(currentLevelIndex);
+        LoadCurrentLevel();
     }
 
     // Update is called once per frame
@@ -27,11 +29,20 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadLevel(int levelIndex)
+    public void AddScore(int amount)
     {
-        LevelData levelToLoad = levels[levelIndex];
-        SetupPlayer(levelToLoad.ufoScale);
-        SpawnAsteroids(levelToLoad.asteroidCount);
+        score += amount;
+        if (CurrentLevel.requiredScore > 0 && score >= CurrentLevel.requiredScore)
+        {
+            currentLevelIndex = (currentLevelIndex + 1) % levels.Length;
+            LoadCurrentLevel();
+        }
+    }
+
+    void LoadCurrentLevel()
+    {
+        SetupPlayer(CurrentLevel.ufoScale);
+        SpawnAsteroids(CurrentLevel.asteroidCount);
     }
 
     void SetupPlayer(float scale)

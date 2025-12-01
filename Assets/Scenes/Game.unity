@@ -320,14 +320,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335c74ce36d11a948813af085a4a7204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  tractorBeam: {fileID: 1107760504}
+  progressionData: {fileID: 11400000, guid: 436caec3bce7e3949a07b8b311717ec7, type: 2}
+  healthText: {fileID: 737256100}
   thrustForce: 280
   maxSpeed: 20
   rotationAdjustSpeed: 100
   maxHealth: 100
   currentHealth: 0
-  tractorBeam: {fileID: 1107760504}
-  progressionData: {fileID: 11400000, guid: 436caec3bce7e3949a07b8b311717ec7, type: 2}
-  healthText: {fileID: 737256100}
 --- !u!212 &311849472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1261,8 +1261,6 @@ MonoBehaviour:
   player: {fileID: 311849468}
   asteroid: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
   scoreText: {fileID: 1072111466}
-  currentLevelIndex: 0
-  score: 0
 --- !u!4 &859784012
 Transform:
   m_ObjectHideFlags: 0
@@ -2679,10 +2677,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 859784012}
   - {fileID: 1070303225}
-  - {fileID: 1714991301}
   - {fileID: 311849469}
-  - {fileID: 170116002}
   - {fileID: 1218227799}
+  - {fileID: 210937026}
+  - {fileID: 1714991301}
+  - {fileID: 170116002}
   - {fileID: 775655241}
   - {fileID: 1514080996}
-  - {fileID: 210937026}

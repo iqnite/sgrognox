@@ -22,7 +22,7 @@ public class GoalController : MonoBehaviour
     {
         if (collision.CompareTag("Asteroid"))
         {
-            gameManager.score += progressionData.scorePerAsteroid * (int)Math.Ceiling(collision.transform.localScale.x);
+            gameManager.AddScore(progressionData.scorePerAsteroid * (int)Math.Ceiling(collision.transform.localScale.x));
             Destroy(collision.gameObject);
         }
     }
