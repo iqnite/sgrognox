@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public GameObject player;
+    public float sizeRatio;
     public float minX;
     public float maxX;
     public float minY;
     public float maxY;
-    public GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,5 +23,10 @@ public class CameraController : MonoBehaviour
         float limitedY = Mathf.Clamp(playerPosition.y, minY, maxY);
         Vector3 newPosition = new(limitedX, limitedY, transform.position.z);
         transform.position = newPosition;
+    }
+
+    void LateUpdate()
+    {
+        Camera.main.orthographicSize = player.transform.localScale.x * sizeRatio;
     }
 }
