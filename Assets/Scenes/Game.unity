@@ -292,8 +292,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 5.669999
+  m_UseAutoMass: 0
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -307,7 +307,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &311849471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   tractorBeam: {fileID: 1107760504}
   progressionData: {fileID: 11400000, guid: 436caec3bce7e3949a07b8b311717ec7, type: 2}
   healthText: {fileID: 737256100}
-  thrustForce: 280
+  thrustForce: 1150
   maxSpeed: 20
   rotationAdjustSpeed: 100
   maxHealth: 100
@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   levels:
   - {fileID: 11400000, guid: d12c43e24bd66dc4f91a775d9fb4634d, type: 2}
+  - {fileID: 11400000, guid: 886321fcc93222a44b6a4da4479d04db, type: 2}
   player: {fileID: 311849468}
   asteroid: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
   scoreText: {fileID: 1072111466}
@@ -1700,11 +1701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e9e513a964036499ea8bbf6e0c9784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  player: {fileID: 311849468}
+  sizeRatio: 1
   minX: -114
   maxX: 118
   minY: -675
   maxY: 15
-  player: {fileID: 311849468}
 --- !u!1 &1072111464
 GameObject:
   m_ObjectHideFlags: 0

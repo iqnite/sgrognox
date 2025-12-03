@@ -41,7 +41,9 @@ public class TractorBeamController : MonoBehaviour
         foreach (Collider2D collider in touchingColliders)
         {
             if (collider == null) continue;
-            if (collider.transform.localScale.magnitude < transform.localScale.magnitude)
+            if (collider.CompareTag("Goal")) continue;
+            if (collider.bounds.size.x < beamCollider.bounds.size.x
+                && collider.bounds.size.y < beamCollider.bounds.size.y)
             {
                 capturedObject = collider.gameObject;
             }

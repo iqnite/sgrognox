@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
         Move();
         ToggleTractorBeam();
         LimitSpeed();
-        AdjustRotation();
     }
 
     void Move()
@@ -47,7 +46,7 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.rightArrowKey.isPressed) direction += Vector2.right;
         if (direction != Vector2.zero)
         {
-            rb.AddForce(direction * thrustForce * transform.localScale.x * Time.deltaTime);
+            rb.AddForce(thrustForce * Time.deltaTime * transform.localScale.x * direction);
         }
     }
 
@@ -63,13 +62,6 @@ public class PlayerController : MonoBehaviour
         {
             spaceKeyAlreadyPressed = false;
         }
-    }
-
-    void AdjustRotation()
-    {
-        float currentRotation = rb.rotation;
-        float targetRotation = Mathf.MoveTowardsAngle(currentRotation, 0f, rotationAdjustSpeed * Time.deltaTime);
-        rb.MoveRotation(targetRotation);
     }
 
     void LimitSpeed()
