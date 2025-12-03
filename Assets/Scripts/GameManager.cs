@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
 
     void LateUpdate()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + score.ToString() + (
+            CurrentLevel.requiredScore == 0 ? "" : " / " + CurrentLevel.requiredScore.ToString());
     }
 }
