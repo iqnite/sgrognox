@@ -40,21 +40,14 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        if (Keyboard.current.upArrowKey.isPressed)
+        Vector2 direction = Vector2.zero;
+        if (Keyboard.current.upArrowKey.isPressed) direction += Vector2.up;
+        if (Keyboard.current.downArrowKey.isPressed) direction += Vector2.down;
+        if (Keyboard.current.leftArrowKey.isPressed) direction += Vector2.left;
+        if (Keyboard.current.rightArrowKey.isPressed) direction += Vector2.right;
+        if (direction != Vector2.zero)
         {
-            rb.AddForce(Vector2.up * thrustForce);
-        }
-        if (Keyboard.current.downArrowKey.isPressed)
-        {
-            rb.AddForce(Vector2.down * thrustForce);
-        }
-        if (Keyboard.current.leftArrowKey.isPressed)
-        {
-            rb.AddForce(Vector2.left * thrustForce);
-        }
-        if (Keyboard.current.rightArrowKey.isPressed)
-        {
-            rb.AddForce(Vector2.right * thrustForce);
+            rb.AddForce(direction * thrustForce * transform.localScale.x * Time.deltaTime);
         }
     }
 
