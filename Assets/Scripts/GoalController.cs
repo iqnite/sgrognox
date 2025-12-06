@@ -20,10 +20,14 @@ public class GoalController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Asteroid"))
+        foreach (ProgressionData.ObjectParamters objParams in progressionData.objectParamters)
         {
-            gameManager.AddScore(progressionData.scorePerAsteroid * (int)Math.Ceiling(collision.transform.localScale.x));
-            Destroy(collision.gameObject);
+            if (collision.CompareTag(objParams.tag))
+            {
+                gameManager.AddScore(objParams.score);
+                Destroy(collision.gameObject);
+                break;
+            }
         }
     }
 }

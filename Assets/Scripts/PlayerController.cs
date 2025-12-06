@@ -74,13 +74,13 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.gameObject.tag)
+        foreach (ProgressionData.ObjectParamters objParams in progressionData.objectParamters)
         {
-            case "Asteroid":
-                currentHealth -= progressionData.damagePerAsteroid;
+            if (collision.gameObject.CompareTag(objParams.tag))
+            {
+                currentHealth -= objParams.damage;
                 break;
-            default:
-                break;
+            }
         }
 
         if (currentHealth <= 0)
