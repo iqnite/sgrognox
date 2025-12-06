@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public LevelData[] levels;
     public GameObject player;
-    public GameObject asteroid;
+    public GameObject asteroidPrefab;
     public TextMeshProUGUI scoreText;
 
     LevelData CurrentLevel { get => levels[currentLevelIndex]; }
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            Instantiate(asteroid);
+            Instantiate(asteroidPrefab);
         }
     }
 
