@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public LevelData[] levels;
     public GameObject player;
-    public GameObject asteroidPrefab;
     public TextMeshProUGUI scoreText;
+    public LevelData[] levels;
 
     LevelData CurrentLevel { get => levels[currentLevelIndex]; }
     int currentLevelIndex = 0;
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
     void LoadCurrentLevel()
     {
         SetupPlayer(CurrentLevel.ufoScale);
-        SpawnAsteroids(CurrentLevel.asteroidCount);
+        SpawnObjects(CurrentLevel);
     }
 
     void SetupPlayer(float scale)
@@ -52,11 +51,16 @@ public class GameManager : MonoBehaviour
         playerController.currentHealth = playerController.maxHealth;
     }
 
-    void SpawnAsteroids(int count)
+    void SpawnObjects(LevelData levelData)
     {
-        for (int i = 0; i < count; i++)
+        foreach (LevelData.ObjectCount entry in levelData.spawnObjects)
         {
-            Instantiate(asteroidPrefab);
+            GameObject obj = entry.obj;
+            int count = entry.count;
+            for (int i = 0; i < count; i++)
+            {
+                Instantiate(obj);
+            }
         }
     }
 

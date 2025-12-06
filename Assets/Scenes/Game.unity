@@ -1263,12 +1263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f180006dd832c544db6e17acb46bf94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  player: {fileID: 311849468}
+  scoreText: {fileID: 1072111466}
   levels:
   - {fileID: 11400000, guid: d12c43e24bd66dc4f91a775d9fb4634d, type: 2}
   - {fileID: 11400000, guid: 886321fcc93222a44b6a4da4479d04db, type: 2}
-  player: {fileID: 311849468}
-  asteroid: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
-  scoreText: {fileID: 1072111466}
 --- !u!4 &859784012
 Transform:
   m_ObjectHideFlags: 0
