@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
 
 public class GoalController : MonoBehaviour
 {
-    public ProgressionData progressionData;
     public GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,14 +18,11 @@ public class GoalController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (ProgressionData.ObjectParamters objParams in progressionData.objectParamters)
+        ObjectMetadata objectMetadata;
+        if (collision.gameObject.TryGetComponent(out objectMetadata))
         {
-            if (collision.CompareTag(objParams.tag))
-            {
-                gameManager.AddScore(objParams.score);
-                Destroy(collision.gameObject);
-                break;
-            }
+            gameManager.AddGoalObject(objectMetadata.objectName);
+            Destroy(collision.gameObject);
         }
     }
 }

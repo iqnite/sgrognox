@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1214313424857511166}
   - component: {fileID: 2522442434462612957}
   - component: {fileID: -2614152019877555856}
+  - component: {fileID: 3387112321272384836}
   m_Layer: 0
   m_Name: PickableObject
   m_TagString: Untagged
@@ -73,3 +74,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GravityController
   gravitySettings: {fileID: 11400000, guid: 086351b5f21793c44b5b5d6a1bb46aa0, type: 2}
+--- !u!114 &3387112321272384836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028246701494969803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe3770ea51e52e4e8c3ac2848743552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectMetadata
+  objectName: 
+  playerDamage: 0

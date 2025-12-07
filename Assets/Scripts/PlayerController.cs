@@ -1,4 +1,5 @@
 using TMPro;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,15 +8,23 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public GameObject tractorBeam;
-    public ProgressionData progressionData;
     public TextMeshProUGUI healthText;
     public float thrustForce;
     public float maxSpeed;
     public float rotationAdjustSpeed;
     public int maxHealth;
-    public int currentHealth;
+    public int CurrentHealth
+    {
+        get => _currentHealth;
+        set
+        {
+            _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            UpdateHealthText();
+        }
+    }
 
     Rigidbody2D rb;
+    int _currentHealth = 100;
     float spawnX;
     float spawnY;
     bool spaceKeyAlreadyPressed = false;
@@ -24,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
         spawnX = transform.position.x;
         spawnY = transform.position.y;
     }
@@ -74,20 +83,16 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (ProgressionData.ObjectParamters objParams in progressionData.objectParamters)
+        ObjectMetadata objectMetadata;
+        if (collision.gameObject.TryGetComponent(out objectMetadata))
         {
-            if (collision.gameObject.CompareTag(objParams.tag))
+            CurrentHealth -= objectMetadata.playerDamage;
+            if (CurrentHealth <= 0)
             {
-                currentHealth -= objParams.damage;
-                break;
+                transform.position = new Vector3(spawnX, spawnY, transform.position.z);
+                CurrentHealth = maxHealth;
+                tractorBeam.GetComponent<TractorBeamController>().Toggle(false);
             }
-        }
-
-        if (currentHealth <= 0)
-        {
-            transform.position = new Vector3(spawnX, spawnY, transform.position.z);
-            currentHealth = maxHealth;
-            tractorBeam.GetComponent<TractorBeamController>().Toggle(false);
         }
     }
 
@@ -96,15 +101,15 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Goal":
-                currentHealth = maxHealth;
+                CurrentHealth = maxHealth;
                 break;
             default:
                 break;
         }
     }
 
-    void LateUpdate()
+    void UpdateHealthText()
     {
-        healthText.text = "Health: " + currentHealth + "%";
+        healthText.text = "Health: " + CurrentHealth + "%";
     }
 }

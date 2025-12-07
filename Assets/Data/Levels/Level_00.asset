@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Level_00
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelNumber: 0
-  requiredScore: 5
   ufoScale: 10
   spawnObjects:
-  - obj: {fileID: 2564784749926751897, guid: 280445ec3e276b54fb1d29ba8b5205b5, type: 3}
+  - gameObject: {fileID: 2564784749926751897, guid: 280445ec3e276b54fb1d29ba8b5205b5, type: 3}
     count: 100
+  goalObjects:
+  - gameObject: {fileID: 2564784749926751897, guid: 280445ec3e276b54fb1d29ba8b5205b5, type: 3}
+    count: 3
+    currentCount: 0

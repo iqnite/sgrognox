@@ -48,6 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: objectName
+      value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: playerDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: humanReadableName
+      value: Asteroids
+      objectReference: {fileID: 0}
     - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_Name
       value: Asteroid
