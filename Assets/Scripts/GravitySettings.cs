@@ -4,11 +4,11 @@ using UnityEngine;
 public class GravitySettings : ScriptableObject
 {
     [Tooltip("Height above which gravity becomes zero (space)")]
-    public float spaceHeight;
+    public float SpaceHeight;
 
     [Tooltip("Height where gravity is at full Earth strength")]
-    public float groundHeight;
+    public float GroundHeight;
 
     [Tooltip("Maximum gravity scale at ground level")]
-    public float maxGravityScale;
+    public float MaxGravityScale;
 }

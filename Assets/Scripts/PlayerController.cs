@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour
 {
-    public GameObject tractorBeam;
+    public UnityEngine.GameObject tractorBeam;
     public TextMeshProUGUI healthText;
     public float thrustForce;
     public float maxSpeed;

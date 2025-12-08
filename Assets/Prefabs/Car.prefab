@@ -119,13 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9fb0bc4963917479b6c28f888e66f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarController
-  lanes:
+  Lanes:
   - 0
   - 0.9
-  laneY: -668
-  leftX: -114
-  rightX: 120
-  speed: 20
+  LaneY: -668
+  LeftX: -114
+  RightX: 120
+  Speed: 20
 --- !u!212 &5539369788700173062
 SpriteRenderer:
   serializedVersion: 2

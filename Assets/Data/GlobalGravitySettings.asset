@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e6a352d0434244ea3b6f424125334e, type: 3}
   m_Name: GlobalGravitySettings
   m_EditorClassIdentifier: Assembly-CSharp::GravitySettings
-  spaceHeight: -400
-  groundHeight: -660
-  maxGravityScale: 1
+  SpaceHeight: -400
+  GroundHeight: -660
+  MaxGravityScale: 1

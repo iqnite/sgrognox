@@ -1,14 +1,13 @@
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
-    public TextMeshProUGUI scoreText;
-    public LevelData[] levels;
+    public GameObject Player;
+    public TextMeshProUGUI ScoreText;
+    public LevelData[] Levels;
 
-    LevelData CurrentLevelData { get => levels[currentLevelIndex]; }
+    LevelData CurrentLevelData => Levels[currentLevelIndex];
     ObjectMetadata[] goalObjectMetadata;
     int currentLevelIndex = 0;
 
@@ -35,14 +34,13 @@ public class GameManager : MonoBehaviour
             CurrentLevelData.goalObjects, g => g.gameObject.GetComponent<ObjectMetadata>().objectName == objectName);
         if (obj == null)
         {
-            Debug.LogWarning($"Goal object with name {objectName} not found.");
             return;
         }
         obj.currentCount++;
         if (System.Array.TrueForAll(
             CurrentLevelData.goalObjects, g => g.currentCount >= g.count))
         {
-            currentLevelIndex = (currentLevelIndex + 1) % levels.Length;
+            currentLevelIndex = (currentLevelIndex + 1) % Levels.Length;
             LoadCurrentLevel();
         }
         UpdateScoreText();
@@ -69,8 +67,8 @@ public class GameManager : MonoBehaviour
 
     void SetupPlayer(float scale)
     {
-        player.transform.localScale = new Vector3(scale, scale, scale);
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        Player.transform.localScale = new Vector3(scale, scale, scale);
+        PlayerController playerController = Player.GetComponent<PlayerController>();
         playerController.CurrentHealth = playerController.maxHealth;
     }
 
@@ -89,12 +87,12 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "";
+        ScoreText.text = "";
         for (int i = 0; i < CurrentLevelData.goalObjects.Length; i++)
         {
             LevelData.GoalObjectCount obj = CurrentLevelData.goalObjects[i];
             ObjectMetadata metadata = goalObjectMetadata[i];
-            scoreText.text += $"{metadata.humanReadableName}: {obj.currentCount}/{obj.count}\n";
+            ScoreText.text += $"{metadata.humanReadableName}: {obj.currentCount}/{obj.count}\n";
         }
     }
 }

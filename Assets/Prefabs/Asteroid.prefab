@@ -99,15 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021b9061357d8614594351be5441edc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  minX: -114
-  maxX: 110
-  minY: -200
-  maxY: -50
-  minSize: 0.5
-  maxSize: 2
-  minSpeed: 0
-  maxSpeed: 100
-  maxSpinSpeed: 10
+  MinSpawnX: -114
+  MaxSpawnX: 110
+  MinSpawnY: -200
+  MaxSpawnY: -50
+  MinSize: 0.5
+  MaxSize: 2
+  MinSpeed: 0
+  MaxSpeed: 100
+  MaxSpinSpeed: 10
 --- !u!212 &5466014428967500955
 SpriteRenderer:
   serializedVersion: 2

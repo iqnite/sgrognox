@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class GravityController : MonoBehaviour
 {
-    public GravitySettings gravitySettings;
+    public GravitySettings GravitySettings;
 
     Rigidbody2D rb;
 
@@ -15,26 +14,24 @@ public class GravityController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (gravitySettings == null) return;
-
+        if (GravitySettings == null) return;
         float currentHeight = transform.position.y;
-
-        if (currentHeight >= gravitySettings.spaceHeight)
+        if (currentHeight >= GravitySettings.SpaceHeight)
         {
             rb.gravityScale = 0f;
         }
-        else if (currentHeight > gravitySettings.groundHeight)
+        else if (currentHeight > GravitySettings.GroundHeight)
         {
-            float normalizedHeight = (currentHeight - gravitySettings.groundHeight) / (gravitySettings.spaceHeight - gravitySettings.groundHeight);
+            float normalizedHeight = (currentHeight - GravitySettings.GroundHeight) / (GravitySettings.SpaceHeight - GravitySettings.GroundHeight);
             float minDistanceOffset = 0.1f;
             float distance = normalizedHeight + minDistanceOffset;
             float gravityFactor = 1f / (distance * distance);
             float groundGravity = 1f / (minDistanceOffset * minDistanceOffset);
-            rb.gravityScale = gravitySettings.maxGravityScale * (gravityFactor / groundGravity);
+            rb.gravityScale = GravitySettings.MaxGravityScale * (gravityFactor / groundGravity);
         }
         else
         {
-            rb.gravityScale = gravitySettings.maxGravityScale;
+            rb.gravityScale = GravitySettings.MaxGravityScale;
         }
     }
 }

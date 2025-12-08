@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1a661ab679c9f4f90238d87e44e255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GravityController
-  gravitySettings: {fileID: 11400000, guid: 086351b5f21793c44b5b5d6a1bb46aa0, type: 2}
+  GravitySettings: {fileID: 11400000, guid: 086351b5f21793c44b5b5d6a1bb46aa0, type: 2}
 --- !u!114 &3387112321272384836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,4 +87,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectMetadata
   objectName: 
+  humanReadableName: 
   playerDamage: 0

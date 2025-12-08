@@ -1261,9 +1261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f180006dd832c544db6e17acb46bf94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  player: {fileID: 311849468}
-  scoreText: {fileID: 1072111466}
-  levels:
+  Player: {fileID: 311849468}
+  ScoreText: {fileID: 1072111466}
+  Levels:
   - {fileID: 11400000, guid: d12c43e24bd66dc4f91a775d9fb4634d, type: 2}
   - {fileID: 11400000, guid: 886321fcc93222a44b6a4da4479d04db, type: 2}
 --- !u!4 &859784012
@@ -1707,12 +1707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e9e513a964036499ea8bbf6e0c9784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  player: {fileID: 311849468}
-  sizeRatio: 1
-  minX: -114
-  maxX: 118
-  minY: -675
-  maxY: 15
+  Player: {fileID: 311849468}
+  SizeRatio: 1
+  MinX: -114
+  MaxX: 118
+  MinY: -675
+  MaxY: 15
 --- !u!1 &1072111464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,7 +2293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449a98004479202478b6211a37a345c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalController
-  gameManager: {fileID: 859784011}
+  GameManager: {fileID: 859784010}
 --- !u!1 &1496077602
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class TractorBeamController : MonoBehaviour
     public float minOpacity;
     public float opacityStep;
 
-    GameObject capturedObject = null;
+    UnityEngine.GameObject capturedObject = null;
     Collider2D beamCollider;
     Material material;
     bool isActive;

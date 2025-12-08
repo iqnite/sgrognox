@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class GoalController : MonoBehaviour
 {
-    public GameManager gameManager;
+    public GameObject GameManager;
+
+    GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        gameManager = GameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
