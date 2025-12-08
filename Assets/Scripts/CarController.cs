@@ -32,9 +32,12 @@ public class CarController : MonoBehaviour
     {
         if (direction == 0) return;
         spriteRenderer.flipX = direction == -1;
-        rb.AddForce(rb.position + Speed * direction * Time.deltaTime * Vector2.right);
+        if (Mathf.Round(transform.rotation.z) == 0)
+        {
+            rb.MovePosition(rb.position + Speed * direction * Time.deltaTime * Vector2.right);
+        }
         if ((direction == 1 && transform.position.x > RightX)
-            || (direction == -1 && transform.position.x < LeftX))
+                    || (direction == -1 && transform.position.x < LeftX))
         {
             transform.position = new Vector3(
                 direction == 1 ? LeftX : RightX,

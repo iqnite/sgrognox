@@ -106,7 +106,7 @@ MonoBehaviour:
   MinSize: 0.5
   MaxSize: 2
   MinSpeed: 0
-  MaxSpeed: 100
+  MaxSpeed: 1000
   MaxSpinSpeed: 10
 --- !u!212 &5466014428967500955
 SpriteRenderer:
