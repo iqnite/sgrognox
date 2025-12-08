@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
     public void AddGoalObject(string objectName)
     {
         LevelData.GoalObjectCount obj = System.Array.Find(
-            CurrentLevelData.goalObjects, g => g.gameObject.GetComponent<ObjectMetadata>().objectName == objectName);
+            CurrentLevelData.GoalObjects, g => g.GameObject.GetComponent<ObjectMetadata>().ObjectName == objectName);
         if (obj == null)
         {
             return;
         }
-        obj.currentCount++;
+        obj.CurrentCount++;
         if (System.Array.TrueForAll(
-            CurrentLevelData.goalObjects, g => g.currentCount >= g.count))
+            CurrentLevelData.GoalObjects, g => g.CurrentCount >= g.Count))
         {
             currentLevelIndex = (currentLevelIndex + 1) % Levels.Length;
             LoadCurrentLevel();
@@ -50,17 +50,17 @@ public class GameManager : MonoBehaviour
     {
         InitializeGoalProgress();
         SpawnObjects(CurrentLevelData);
-        SetupPlayer(CurrentLevelData.ufoScale);
+        SetupPlayer(CurrentLevelData.UfoScale);
     }
 
     private void InitializeGoalProgress()
     {
-        goalObjectMetadata = new ObjectMetadata[CurrentLevelData.goalObjects.Length];
-        for (int i = 0; i < CurrentLevelData.goalObjects.Length; i++)
+        goalObjectMetadata = new ObjectMetadata[CurrentLevelData.GoalObjects.Length];
+        for (int i = 0; i < CurrentLevelData.GoalObjects.Length; i++)
         {
-            LevelData.GoalObjectCount obj = CurrentLevelData.goalObjects[i];
-            obj.currentCount = 0;
-            goalObjectMetadata[i] = obj.gameObject.GetComponent<ObjectMetadata>();
+            LevelData.GoalObjectCount obj = CurrentLevelData.GoalObjects[i];
+            obj.CurrentCount = 0;
+            goalObjectMetadata[i] = obj.GameObject.GetComponent<ObjectMetadata>();
         }
         UpdateScoreText();
     }
@@ -69,15 +69,15 @@ public class GameManager : MonoBehaviour
     {
         Player.transform.localScale = new Vector3(scale, scale, scale);
         PlayerController playerController = Player.GetComponent<PlayerController>();
-        playerController.CurrentHealth = playerController.maxHealth;
+        playerController.CurrentHealth = playerController.MaxHealth;
     }
 
     void SpawnObjects(LevelData levelData)
     {
-        foreach (LevelData.ObjectCount entry in levelData.spawnObjects)
+        foreach (LevelData.ObjectCount entry in levelData.SpawnObjects)
         {
-            GameObject obj = entry.gameObject;
-            int count = entry.count;
+            GameObject obj = entry.GameObject;
+            int count = entry.Count;
             for (int i = 0; i < count; i++)
             {
                 Instantiate(obj);
@@ -88,11 +88,11 @@ public class GameManager : MonoBehaviour
     void UpdateScoreText()
     {
         ScoreText.text = "";
-        for (int i = 0; i < CurrentLevelData.goalObjects.Length; i++)
+        for (int i = 0; i < CurrentLevelData.GoalObjects.Length; i++)
         {
-            LevelData.GoalObjectCount obj = CurrentLevelData.goalObjects[i];
+            LevelData.GoalObjectCount obj = CurrentLevelData.GoalObjects[i];
             ObjectMetadata metadata = goalObjectMetadata[i];
-            ScoreText.text += $"{metadata.humanReadableName}: {obj.currentCount}/{obj.count}\n";
+            ScoreText.text += $"{metadata.HumanReadableName}: {obj.CurrentCount}/{obj.Count}\n";
         }
     }
 }

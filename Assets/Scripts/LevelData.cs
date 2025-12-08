@@ -7,18 +7,18 @@ public class LevelData : ScriptableObject
     [Serializable]
     public class ObjectCount
     {
-        public GameObject gameObject;
-        public int count;
+        public GameObject GameObject;
+        public int Count;
     }
 
     [Serializable]
     public class GoalObjectCount : ObjectCount
     {
-        public int currentCount;
+        public int CurrentCount;
     }
 
-    public int levelNumber;
-    public float ufoScale;
-    public ObjectCount[] spawnObjects;
-    public GoalObjectCount[] goalObjects;
+    public int LevelNumber;
+    public float UfoScale;
+    public ObjectCount[] SpawnObjects;
+    public GoalObjectCount[] GoalObjects;
 }

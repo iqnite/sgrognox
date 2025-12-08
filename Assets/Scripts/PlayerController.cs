@@ -1,5 +1,4 @@
 using TMPro;
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,33 +6,33 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour
 {
-    public UnityEngine.GameObject tractorBeam;
-    public TextMeshProUGUI healthText;
-    public float thrustForce;
-    public float maxSpeed;
-    public float rotationAdjustSpeed;
-    public int maxHealth;
+    public GameObject TractorBeam;
+    public TextMeshProUGUI HealthText;
+    public float ThrustForce;
+    public float MaxSpeed;
+    public float RotationAdjustSpeed;
+    public int MaxHealth;
     public int CurrentHealth
     {
-        get => _currentHealth;
+        get => currentHealth;
         set
         {
-            _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            currentHealth = Mathf.Clamp(value, 0, MaxHealth);
             UpdateHealthText();
         }
     }
 
     Rigidbody2D rb;
-    int _currentHealth = 100;
+    int currentHealth = 100;
     float spawnX;
     float spawnY;
-    bool spaceKeyAlreadyPressed = false;
+    bool spaceKeyIsAlreadyPressed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        CurrentHealth = maxHealth;
+        CurrentHealth = MaxHealth;
         spawnX = transform.position.x;
         spawnY = transform.position.y;
     }
@@ -55,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.rightArrowKey.isPressed) direction += Vector2.right;
         if (direction != Vector2.zero)
         {
-            rb.AddForce(thrustForce * Time.deltaTime * transform.localScale.x * direction);
+            rb.AddForce(ThrustForce * Time.deltaTime * transform.localScale.x * direction);
         }
     }
 
@@ -63,21 +62,21 @@ public class PlayerController : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.isPressed)
         {
-            if (spaceKeyAlreadyPressed) return;
-            spaceKeyAlreadyPressed = true;
-            tractorBeam.GetComponent<TractorBeamController>().Toggle();
+            if (spaceKeyIsAlreadyPressed) return;
+            spaceKeyIsAlreadyPressed = true;
+            TractorBeam.GetComponent<TractorBeamController>().Toggle();
         }
         else
         {
-            spaceKeyAlreadyPressed = false;
+            spaceKeyIsAlreadyPressed = false;
         }
     }
 
     void LimitSpeed()
     {
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > MaxSpeed)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * MaxSpeed;
         }
     }
 
@@ -86,12 +85,12 @@ public class PlayerController : MonoBehaviour
         ObjectMetadata objectMetadata;
         if (collision.gameObject.TryGetComponent(out objectMetadata))
         {
-            CurrentHealth -= objectMetadata.playerDamage;
+            CurrentHealth -= objectMetadata.PlayerDamage;
             if (CurrentHealth <= 0)
             {
                 transform.position = new Vector3(spawnX, spawnY, transform.position.z);
-                CurrentHealth = maxHealth;
-                tractorBeam.GetComponent<TractorBeamController>().Toggle(false);
+                CurrentHealth = MaxHealth;
+                TractorBeam.GetComponent<TractorBeamController>().Toggle(false);
             }
         }
     }
@@ -101,7 +100,7 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Goal":
-                CurrentHealth = maxHealth;
+                CurrentHealth = MaxHealth;
                 break;
             default:
                 break;
@@ -110,6 +109,6 @@ public class PlayerController : MonoBehaviour
 
     void UpdateHealthText()
     {
-        healthText.text = "Health: " + CurrentHealth + "%";
+        HealthText.text = "Health: " + CurrentHealth + "%";
     }
 }

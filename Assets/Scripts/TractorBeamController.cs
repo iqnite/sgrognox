@@ -4,11 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TractorBeamController : MonoBehaviour
 {
-    public float maxOpacity;
-    public float minOpacity;
-    public float opacityStep;
+    public float MaxOpacity;
+    public float MinOpacity;
+    public float OpacityStep;
 
-    UnityEngine.GameObject capturedObject = null;
+    GameObject capturedObject = null;
     Collider2D beamCollider;
     Material material;
     bool isActive;
@@ -75,13 +75,13 @@ public class TractorBeamController : MonoBehaviour
     public void Toggle(bool? value = null)
     {
         isActive = value ?? !isActive;
-        targetOpacity = isActive ? maxOpacity : minOpacity;
+        targetOpacity = isActive ? MaxOpacity : MinOpacity;
     }
 
     void UpdateOpacity()
     {
         float currentOpacity = material.color.a;
-        float step = opacityStep * Time.deltaTime * 10;
+        float step = OpacityStep * Time.deltaTime * 10;
         if (Mathf.Abs(currentOpacity - targetOpacity) < step)
         {
             currentOpacity = targetOpacity;

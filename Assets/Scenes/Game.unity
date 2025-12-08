@@ -321,12 +321,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335c74ce36d11a948813af085a4a7204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  tractorBeam: {fileID: 1107760504}
-  healthText: {fileID: 737256100}
-  thrustForce: 1150
-  maxSpeed: 20
-  rotationAdjustSpeed: 100
-  maxHealth: 100
+  TractorBeam: {fileID: 1107760504}
+  HealthText: {fileID: 737256100}
+  ThrustForce: 1150
+  MaxSpeed: 20
+  RotationAdjustSpeed: 100
+  MaxHealth: 100
 --- !u!212 &311849472
 SpriteRenderer:
   serializedVersion: 2
@@ -1955,9 +1955,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff05d7147f6e21045be3df2bb7843065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TractorBeamController
-  maxOpacity: 0.8
-  minOpacity: 0
-  opacityStep: 0.2
+  MaxOpacity: 0.8
+  MinOpacity: 0
+  OpacityStep: 0.2
 --- !u!61 &1107760508
 BoxCollider2D:
   m_ObjectHideFlags: 0

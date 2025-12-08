@@ -86,6 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe3770ea51e52e4e8c3ac2848743552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectMetadata
-  objectName: 
-  humanReadableName: 
-  playerDamage: 0
+  ObjectName: 
+  HumanReadableName: 
+  PlayerDamage: 0

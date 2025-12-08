@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectMetadata : MonoBehaviour
 {
-    public string objectName;
-    public string humanReadableName;
-    public int playerDamage;
+    public string ObjectName;
+    public string HumanReadableName;
+    public int PlayerDamage;
 }

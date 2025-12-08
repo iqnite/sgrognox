@@ -23,7 +23,7 @@ public class GoalController : MonoBehaviour
         ObjectMetadata objectMetadata;
         if (collision.gameObject.TryGetComponent(out objectMetadata))
         {
-            gameManager.AddGoalObject(objectMetadata.objectName);
+            gameManager.AddGoalObject(objectMetadata.ObjectName);
             Destroy(collision.gameObject);
         }
     }
