@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Car
   - SideBorder
+  - TractorBeam
   layers:
   - Default
   - TransparentFX

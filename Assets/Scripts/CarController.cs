@@ -45,4 +45,12 @@ public class CarController : MonoBehaviour
                 transform.position.z);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("TractorBeam"))
+        {
+            direction = 0;
+        }
+    }
 }
