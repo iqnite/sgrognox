@@ -65,6 +65,10 @@ PrefabInstance:
       value: Asteroid
       objectReference: {fileID: 0}
     - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
