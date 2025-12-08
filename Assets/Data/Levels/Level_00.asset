@@ -17,6 +17,8 @@ MonoBehaviour:
   spawnObjects:
   - gameObject: {fileID: 2564784749926751897, guid: 280445ec3e276b54fb1d29ba8b5205b5, type: 3}
     count: 100
+  - gameObject: {fileID: 8408775288231230628, guid: 48c8f7b3c6c315d49a91ac1ef9016f31, type: 3}
+    count: 10
   goalObjects:
   - gameObject: {fileID: 2564784749926751897, guid: 280445ec3e276b54fb1d29ba8b5205b5, type: 3}
     count: 3

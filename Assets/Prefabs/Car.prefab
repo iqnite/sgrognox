@@ -9,8 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4621
+      value: 2.014756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.36
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,9 +60,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: objectName
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: playerDamage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: humanReadableName
@@ -65,6 +81,10 @@ PrefabInstance:
       value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_TagString
       value: Car
       objectReference: {fileID: 0}
@@ -72,6 +92,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6264329066188509537}
     - targetCorrespondingSourceObject: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5539369788700173062}
@@ -84,6 +107,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
   m_PrefabInstance: {fileID: 2007469931843934575}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6264329066188509537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8408775288231230628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9fb0bc4963917479b6c28f888e66f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarController
+  lanes:
+  - 0
+  - 0.9
+  laneY: -668
+  leftX: -114
+  rightX: 120
+  speed: 20
 --- !u!212 &5539369788700173062
 SpriteRenderer:
   serializedVersion: 2

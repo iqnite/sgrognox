@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 715703056}
   m_Layer: 0
   m_Name: BorderLeft
-  m_TagString: Border
+  m_TagString: SideBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1645,7 +1645,7 @@ Transform:
   m_GameObject: {fileID: 1070303222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -112.24, y: -674.3, z: -10}
+  m_LocalPosition: {x: 108.6, y: -668.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2307,7 +2307,7 @@ GameObject:
   - component: {fileID: 1496077605}
   m_Layer: 0
   m_Name: BorderRight
-  m_TagString: Border
+  m_TagString: SideBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2522,7 +2522,7 @@ GameObject:
   - component: {fileID: 1714991301}
   m_Layer: 0
   m_Name: Borders
-  m_TagString: Border
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2541,9 +2541,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 715703054}
+  - {fileID: 1496077603}
   - {fileID: 813194398}
   - {fileID: 986737834}
-  - {fileID: 1496077603}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007010059
