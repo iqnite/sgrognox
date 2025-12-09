@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class GravityController : MonoBehaviour
 {
+    public bool IsEnabled = true;
     public GravitySettings GravitySettings;
 
     Rigidbody2D rb;
@@ -14,7 +15,7 @@ public class GravityController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (GravitySettings == null) return;
+        if (!IsEnabled) return;
         float currentHeight = transform.position.y;
         if (currentHeight >= GravitySettings.SpaceHeight)
         {

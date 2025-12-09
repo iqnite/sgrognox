@@ -95,9 +95,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        switch (collision.gameObject.tag)
+        switch (collider.gameObject.tag)
         {
             case "Goal":
                 CurrentHealth = MaxHealth;

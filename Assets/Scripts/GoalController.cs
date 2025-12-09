@@ -18,13 +18,13 @@ public class GoalController : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         ObjectMetadata objectMetadata;
-        if (collision.gameObject.TryGetComponent(out objectMetadata))
+        if (collider.gameObject.TryGetComponent(out objectMetadata))
         {
             gameManager.AddGoalObject(objectMetadata.ObjectName);
-            Destroy(collision.gameObject);
+            Destroy(collider.gameObject);
         }
     }
 }

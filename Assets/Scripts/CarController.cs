@@ -46,9 +46,9 @@ public class CarController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("TractorBeam"))
+        if (collider.gameObject.CompareTag("TractorBeam"))
         {
             direction = 0;
         }
