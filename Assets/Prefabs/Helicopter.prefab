@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2522442434462612957, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: ObjectName
       value: Helicopter
@@ -83,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028246701494969803, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_TagString
+      value: Helicopter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -121,6 +129,8 @@ MonoBehaviour:
   MaxY: -528
   Speed: 50
   AttackRadius: 200
+  SeparationDistance: 100
+  SeparationForce: 1000
 --- !u!212 &-4840667652557718824
 SpriteRenderer:
   serializedVersion: 2

@@ -10,6 +10,8 @@ public class JetController : MonoBehaviour
     public float MaxY;
     public float Speed;
     public float AttackRadius;
+    public float SeparationDistance;
+    public float SeparationForce;
 
     Rigidbody2D rb;
     GravityController gravityController;
@@ -38,12 +40,37 @@ public class JetController : MonoBehaviour
         {
             transform.position = new Vector3(clampedX, clampedY, transform.position.z);
         }
+        SeparateHelicopters();
         if (isPlayerInRange)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             rb.AddForce(direction * Speed);
         }
         rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, Speed);
+    }
+
+    void SeparateHelicopters()
+    {
+        Collider2D[] nearbyHelicopters = Physics2D.OverlapCircleAll(
+            transform.position, SeparationDistance, LayerMask.GetMask("Helicopter"));
+        Vector2 separationVector = Vector2.zero;
+        int count = 0;
+        foreach (Collider2D other in nearbyHelicopters)
+        {
+            if (other.gameObject == gameObject) continue;
+            Vector2 directionAway = transform.position - other.transform.position;
+            float distance = directionAway.magnitude;
+            if (distance > 0 && distance < SeparationDistance)
+            {
+                separationVector += directionAway.normalized / distance;
+                count++;
+            }
+        }
+        if (count > 0)
+        {
+            separationVector /= count;
+            rb.AddForce(separationVector * SeparationForce);
+        }
     }
 
     void LateUpdate()
