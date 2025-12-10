@@ -119,7 +119,7 @@ MonoBehaviour:
   MaxX: 113
   MinY: -640
   MaxY: -528
-  Speed: 100
+  Speed: 50
   AttackRadius: 200
 --- !u!212 &-4840667652557718824
 SpriteRenderer:

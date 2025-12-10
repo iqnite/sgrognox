@@ -32,20 +32,18 @@ public class JetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float clampedX = Mathf.Clamp(transform.position.x, MinX, MaxX);
+        float clampedY = Mathf.Clamp(transform.position.y, MinY, MaxY);
+        if (clampedX != transform.position.x || clampedY != transform.position.y)
+        {
+            transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+        }
         if (isPlayerInRange)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             rb.AddForce(direction * Speed);
         }
-        if (transform.position.x < MinX || transform.position.x > MaxX ||
-            transform.position.y < MinY || transform.position.y > MaxY)
-        {
-            rb.AddForce(-rb.linearVelocity * 2);
-        }
-        if (rb.linearVelocity.magnitude > Speed)
-        {
-            rb.linearVelocity = rb.linearVelocity.normalized * Speed;
-        }
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, Speed);
     }
 
     void LateUpdate()
