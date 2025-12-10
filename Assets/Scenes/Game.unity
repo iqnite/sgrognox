@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 311849471}
   - component: {fileID: 311849472}
   - component: {fileID: 311849473}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   Levels:
   - {fileID: 11400000, guid: d12c43e24bd66dc4f91a775d9fb4634d, type: 2}
   - {fileID: 11400000, guid: 886321fcc93222a44b6a4da4479d04db, type: 2}
+  - {fileID: 11400000, guid: 25a9c298832b8414ea9bce98560e75d3, type: 2}
 --- !u!4 &859784012
 Transform:
   m_ObjectHideFlags: 0

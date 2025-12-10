@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GravityController))]
 public class JetController : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class JetController : MonoBehaviour
     public float MinY;
     public float MaxY;
     public float Speed;
+    public float AttackRadius;
 
+    Rigidbody2D rb;
     GravityController gravityController;
     GameObject player;
     bool isPlayerInRange = false;
@@ -16,6 +19,7 @@ public class JetController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         gravityController = GetComponent<GravityController>();
         player = GameObject.FindWithTag("Player");
         gravityController.IsEnabled = false;
@@ -28,22 +32,26 @@ public class JetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject == player)
+        if (isPlayerInRange)
         {
-            isPlayerInRange = true;
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            rb.AddForce(direction * Speed);
+        }
+        if (transform.position.x < MinX || transform.position.x > MaxX ||
+            transform.position.y < MinY || transform.position.y > MaxY)
+        {
+            rb.AddForce(-rb.linearVelocity * 2);
+        }
+        if (rb.linearVelocity.magnitude > Speed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * Speed;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider)
+    void LateUpdate()
     {
-        if (collider.gameObject == player)
-        {
-            isPlayerInRange = false;
-        }
+        Collider2D playerCollider = Physics2D.OverlapCircle(
+            transform.position, AttackRadius, LayerMask.GetMask("Player"));
+        isPlayerInRange = playerCollider != null;
     }
 }
