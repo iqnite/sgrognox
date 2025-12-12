@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        ScoreText.text = "";
+        ScoreText.text = "Level " + CurrentLevelData.LevelNumber + "\n";
         for (int i = 0; i < CurrentLevelData.GoalObjects.Length; i++)
         {
             LevelData.GoalObjectCount obj = CurrentLevelData.GoalObjects[i];
