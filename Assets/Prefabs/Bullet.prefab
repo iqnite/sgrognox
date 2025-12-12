@@ -119,9 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187d598d611f56e4d9692ebed740a75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletController
-  Speed: 1000
-  MaxLifetime: 10000000
-  RotationOffset: {x: 0, y: 0, z: -45}
+  Speed: 500
+  MaxLifetime: 5
   StartDirection: {x: 0, y: 0, z: 0}
 --- !u!212 &-6038510185731593009
 SpriteRenderer:

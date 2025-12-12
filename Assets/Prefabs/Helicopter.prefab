@@ -130,8 +130,8 @@ MonoBehaviour:
   MaxY: -528
   Speed: 50
   AttackRadius: 200
-  MinShootCooldown: 1000
-  MaxShootCooldown: 5000
+  MinShootCooldown: 1
+  MaxShootCooldown: 10
   SeparationDistance: 100
   SeparationForce: 1000
 --- !u!212 &-4840667652557718824

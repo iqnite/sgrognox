@@ -19,8 +19,8 @@ public class HelicopterController : MonoBehaviour
     Rigidbody2D rb;
     GravityController gravityController;
     GameObject player;
-    bool isPlayerInRange = false;
-    int shootCooldown = 0;
+    float nextShootTime;
+    bool isPlayerInRange;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +30,7 @@ public class HelicopterController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         gravityController.IsEnabled = false;
         isPlayerInRange = false;
-        shootCooldown = Random.Range(MinShootCooldown, MaxShootCooldown);
+        nextShootTime = Time.time + Random.Range(MinShootCooldown, MaxShootCooldown);
         float randomX = Random.Range(MinX, MaxX);
         float randomY = Random.Range(MinY, MaxY);
         transform.position = new Vector3(randomX, randomY, transform.position.z);
@@ -45,13 +45,15 @@ public class HelicopterController : MonoBehaviour
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             rb.AddForce(direction * Speed);
-            if (shootCooldown <= 0)
-            {
-                Shoot();
-            }
         }
         rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, Speed);
-        shootCooldown -= 1;
+
+        // Check if it's time to shoot
+        if (Time.time >= nextShootTime)
+        {
+            Shoot();
+            nextShootTime = Time.time + Random.Range(MinShootCooldown, MaxShootCooldown);
+        }
     }
 
     void ClampPosition()
@@ -66,7 +68,7 @@ public class HelicopterController : MonoBehaviour
 
     void Shoot()
     {
-        shootCooldown = Random.Range(MinShootCooldown, MaxShootCooldown);
+        if (!isPlayerInRange) return;
         Vector3 shootDirection = (player.transform.position - transform.position).normalized;
         GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
         BulletController bulletController = bullet.GetComponent<BulletController>();
