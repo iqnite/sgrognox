@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(GravityController))]
 public class HelicopterController : MonoBehaviour
 {
     public GameObject BulletPrefab;
@@ -17,7 +16,6 @@ public class HelicopterController : MonoBehaviour
     public float SeparationForce;
 
     Rigidbody2D rb;
-    GravityController gravityController;
     GameObject player;
     float nextShootTime;
     bool isPlayerInRange;
@@ -26,9 +24,7 @@ public class HelicopterController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gravityController = GetComponent<GravityController>();
         player = GameObject.FindWithTag("Player");
-        gravityController.IsEnabled = false;
         isPlayerInRange = false;
         nextShootTime = Time.time + Random.Range(MinShootCooldown, MaxShootCooldown);
         float randomX = Random.Range(MinX, MaxX);
