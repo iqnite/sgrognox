@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Asteroid : MonoBehaviour
+public class AsteroidController : MonoBehaviour
 {
     public float MinSpawnX;
     public float MaxSpawnX;
