@@ -18,7 +18,7 @@ public class LevelData : ScriptableObject
         public int CurrentCount;
     }
 
-    public int LevelNumber;
+    public string LevelName;
     public float UfoScale;
     public ObjectCount[] SpawnObjects;
     public GoalObjectCount[] GoalObjects;

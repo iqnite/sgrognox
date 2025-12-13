@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Player;
     public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI FinishText;
     public LevelData[] Levels;
 
     LevelData CurrentLevelData => Levels[currentLevelIndex];
@@ -40,10 +41,19 @@ public class GameManager : MonoBehaviour
         if (System.Array.TrueForAll(
             CurrentLevelData.GoalObjects, g => g.CurrentCount >= g.Count))
         {
-            currentLevelIndex = (currentLevelIndex + 1) % Levels.Length;
-            LoadCurrentLevel();
+            NextLevel();
         }
         UpdateScoreText();
+    }
+
+    void NextLevel()
+    {
+        currentLevelIndex++;
+        LoadCurrentLevel();
+        if (currentLevelIndex >= Levels.Length)
+        {
+            FinishText.gameObject.SetActive(true);
+        }
     }
 
     void LoadCurrentLevel()
@@ -53,7 +63,7 @@ public class GameManager : MonoBehaviour
         SetupPlayer(CurrentLevelData.UfoScale);
     }
 
-    private void InitializeGoalProgress()
+    void InitializeGoalProgress()
     {
         goalObjectMetadata = new ObjectMetadata[CurrentLevelData.GoalObjects.Length];
         for (int i = 0; i < CurrentLevelData.GoalObjects.Length; i++)
@@ -87,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        ScoreText.text = "Level " + CurrentLevelData.LevelNumber + "\n";
+        ScoreText.text = "Level " + CurrentLevelData.LevelName + "\n";
         for (int i = 0; i < CurrentLevelData.GoalObjects.Length; i++)
         {
             LevelData.GoalObjectCount obj = CurrentLevelData.GoalObjects[i];

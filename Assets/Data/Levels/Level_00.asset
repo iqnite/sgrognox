@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7907cf30d6fd6024cab71c22783d95a3, type: 3}
   m_Name: Level_00
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  LevelNumber: 0
+  LevelName: 0
   UfoScale: 10
   SpawnObjects:
   - GameObject: {fileID: 2564784749926751897, guid: 280445ec3e276b54fb1d29ba8b5205b5, type: 3}
