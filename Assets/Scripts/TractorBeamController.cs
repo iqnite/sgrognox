@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TractorBeamController : MonoBehaviour
 {
+    public GameObject GuideArrow;
+    public GameObject Goal;
     public float MaxOpacity;
     public float MinOpacity;
     public float OpacityStep;
@@ -11,6 +13,7 @@ public class TractorBeamController : MonoBehaviour
     GameObject capturedObject = null;
     Collider2D beamCollider;
     Material material;
+    GuideArrowController guideArrowController;
     bool isActive;
     float targetOpacity;
     // Vector3 previousParentPosition;
@@ -20,6 +23,7 @@ public class TractorBeamController : MonoBehaviour
     {
         beamCollider = GetComponent<Collider2D>();
         material = GetComponent<SpriteRenderer>().material;
+        guideArrowController = GuideArrow.GetComponent<GuideArrowController>();
         // previousParentPosition = transform.parent.position;
         Toggle(false);
     }
@@ -52,6 +56,7 @@ public class TractorBeamController : MonoBehaviour
         Rigidbody2D capturedRb = capturedObject.GetComponent<Rigidbody2D>();
         capturedRb.linearVelocity = Vector2.zero;
         capturedRb.angularVelocity = 0f;
+        guideArrowController.PointAt(Goal);
     }
 
     void UpdateCapturedObject()
@@ -59,6 +64,7 @@ public class TractorBeamController : MonoBehaviour
         if (capturedObject == null)
         {
             if (isActive && material.color.a == targetOpacity) Toggle(false);
+            guideArrowController.ClearTarget();
             return;
         }
         if (!isActive)
@@ -67,6 +73,7 @@ public class TractorBeamController : MonoBehaviour
             // Rigidbody2D capturedRb = capturedObject.GetComponent<Rigidbody2D>();
             // capturedRb.linearVelocity = velocity;
             capturedObject = null;
+            guideArrowController.ClearTarget();
             return;
         }
         capturedObject.transform.position = transform.position;
