@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7907cf30d6fd6024cab71c22783d95a3, type: 3}
   m_Name: Finish
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  LevelNumber: 0
-  UfoScale: 0
+  LevelName: 
+  UfoScale: 1
   SpawnObjects: []
   GoalObjects: []

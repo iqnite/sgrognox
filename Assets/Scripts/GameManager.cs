@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevelIndex++;
         LoadCurrentLevel();
-        if (currentLevelIndex >= Levels.Length)
+        if (currentLevelIndex >= Levels.Length - 1)
         {
             FinishText.gameObject.SetActive(true);
         }
