@@ -14,6 +14,7 @@ public class LevelData : ScriptableObject
     [Serializable]
     public class GoalObjectCount : ObjectCount
     {
+        [HideInInspector]
         public int CurrentCount;
     }
 

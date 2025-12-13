@@ -5,6 +5,8 @@ public class BulletController : MonoBehaviour
 {
     public float Speed;
     public int MaxLifetime;
+
+    [HideInInspector]
     public Vector3 StartDirection;
 
     Rigidbody2D rb;
