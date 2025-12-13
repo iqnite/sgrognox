@@ -3,13 +3,16 @@ using UnityEngine;
 public class GoalController : MonoBehaviour
 {
     public GameObject GameManager;
+    public GameObject TractorBeam;
 
     GameManager gameManager;
+    TractorBeamController tractorBeamController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameManager = GameManager.GetComponent<GameManager>();
+        tractorBeamController = TractorBeam.GetComponent<TractorBeamController>();
     }
 
     // Update is called once per frame
@@ -20,11 +23,14 @@ public class GoalController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        if (!collider.gameObject.CompareTag("TractorBeam")) return;
+        if (tractorBeamController.CapturedObject == null) return;
         ObjectMetadata objectMetadata;
-        if (collider.gameObject.TryGetComponent(out objectMetadata))
+        if (tractorBeamController.CapturedObject.TryGetComponent(out objectMetadata))
         {
             gameManager.AddGoalObject(objectMetadata.ObjectName);
-            Destroy(collider.gameObject);
+            Destroy(tractorBeamController.CapturedObject);
+            tractorBeamController.CapturedObject = null;
         }
     }
 }

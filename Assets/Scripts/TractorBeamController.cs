@@ -10,7 +10,9 @@ public class TractorBeamController : MonoBehaviour
     public float MinOpacity;
     public float OpacityStep;
 
-    GameObject capturedObject = null;
+    [HideInInspector]
+    public GameObject CapturedObject = null;
+
     Collider2D beamCollider;
     Material material;
     GuideArrowController guideArrowController;
@@ -39,7 +41,7 @@ public class TractorBeamController : MonoBehaviour
 
     void CheckCollisions()
     {
-        if (!isActive || capturedObject != null) return;
+        if (!isActive || CapturedObject != null) return;
         Collider2D[] touchingColliders = new Collider2D[10];
         _ = beamCollider.Overlap(ContactFilter2D.noFilter, touchingColliders);
         foreach (Collider2D collider in touchingColliders)
@@ -49,11 +51,11 @@ public class TractorBeamController : MonoBehaviour
             if (collider.bounds.size.x < beamCollider.bounds.size.x
                 && collider.bounds.size.y < beamCollider.bounds.size.y)
             {
-                capturedObject = collider.gameObject;
+                CapturedObject = collider.gameObject;
             }
         }
-        if (capturedObject == null) return;
-        Rigidbody2D capturedRb = capturedObject.GetComponent<Rigidbody2D>();
+        if (CapturedObject == null) return;
+        Rigidbody2D capturedRb = CapturedObject.GetComponent<Rigidbody2D>();
         capturedRb.linearVelocity = Vector2.zero;
         capturedRb.angularVelocity = 0f;
         guideArrowController.PointAt(Goal);
@@ -61,7 +63,7 @@ public class TractorBeamController : MonoBehaviour
 
     void UpdateCapturedObject()
     {
-        if (capturedObject == null)
+        if (CapturedObject == null)
         {
             if (isActive && material.color.a == targetOpacity) Toggle(false);
             guideArrowController.ClearTarget();
@@ -72,11 +74,11 @@ public class TractorBeamController : MonoBehaviour
             // Vector3 velocity = (transform.parent.position - previousParentPosition) / Time.deltaTime;
             // Rigidbody2D capturedRb = capturedObject.GetComponent<Rigidbody2D>();
             // capturedRb.linearVelocity = velocity;
-            capturedObject = null;
+            CapturedObject = null;
             guideArrowController.ClearTarget();
             return;
         }
-        capturedObject.transform.position = transform.position;
+        CapturedObject.transform.position = transform.position;
     }
 
     public void Toggle(bool? value = null)
