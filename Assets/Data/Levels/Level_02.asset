@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7907cf30d6fd6024cab71c22783d95a3, type: 3}
+  m_Name: Level_02
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  LevelName: 2
+  UfoScale: 35
+  SpawnObjects:
+  - GameObject: {fileID: 5937157517415962815, guid: 816eef450ca948748b5c73c79f6221dd, type: 3}
+    Count: 1
+  GoalObjects:
+  - GameObject: {fileID: 8408775288231230628, guid: 48c8f7b3c6c315d49a91ac1ef9016f31, type: 3}
+    Count: 3
+    CurrentCount: 0

@@ -2915,6 +2915,7 @@ MonoBehaviour:
   Levels:
   - {fileID: 11400000, guid: d12c43e24bd66dc4f91a775d9fb4634d, type: 2}
   - {fileID: 11400000, guid: 25a9c298832b8414ea9bce98560e75d3, type: 2}
+  - {fileID: 11400000, guid: b2ab4f05ea000d34e8199c1aa73cf032, type: 2}
   - {fileID: 11400000, guid: 21826b6345d91f9429f93ce92ef3e1c2, type: 2}
 --- !u!4 &859784012
 Transform:
@@ -3404,10 +3405,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   Player: {fileID: 311849468}
   SizeRatio: 1
-  MinX: -114
-  MaxX: 118
-  MinY: -675
-  MaxY: 15
+  MinX: -68.5
+  MaxX: 72.6
+  MinY: -639.7
+  MaxY: -4.9
 --- !u!1 &1072111464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,7 +3559,7 @@ GameObject:
   - component: {fileID: 1107760508}
   - component: {fileID: 1107760507}
   m_Layer: 0
-  m_Name: Tractor Beam
+  m_Name: TractorBeam
   m_TagString: TractorBeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
