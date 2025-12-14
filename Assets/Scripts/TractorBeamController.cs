@@ -4,8 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TractorBeamController : MonoBehaviour
 {
-    public GameObject GuideArrow;
     public GameObject Goal;
+    public GameObject GuideArrow;
     public float MaxOpacity;
     public float MinOpacity;
     public float OpacityStep;
@@ -84,6 +84,7 @@ public class TractorBeamController : MonoBehaviour
     public void Toggle(bool? value = null)
     {
         isActive = value ?? !isActive;
+        beamCollider.enabled = isActive;
         targetOpacity = isActive ? MaxOpacity : MinOpacity;
     }
 
