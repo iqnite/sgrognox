@@ -9,7 +9,6 @@ public class GuideArrowController : MonoBehaviour
     public Transform Target;
 
     SpriteRenderer spriteRenderer;
-    bool isCollidingWithTarget;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +16,6 @@ public class GuideArrowController : MonoBehaviour
         Target = gameObject.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
-        isCollidingWithTarget = false;
     }
 
     // Update is called once per frame
@@ -42,7 +40,7 @@ public class GuideArrowController : MonoBehaviour
         transform.position = Camera.main.ScreenToWorldPoint(clampedPos);
         Vector2 direction = Target.position - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        spriteRenderer.enabled = !isCollidingWithTarget;
+        spriteRenderer.enabled = clampedPos != targetScreenPos;
     }
 
     public void PointAt(GameObject target)
@@ -58,17 +56,5 @@ public class GuideArrowController : MonoBehaviour
     public void ClearTarget()
     {
         Target = gameObject.transform;
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.transform == Target)
-            isCollidingWithTarget = true;
-    }
-
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.transform == Target)
-            isCollidingWithTarget = false;
     }
 }
