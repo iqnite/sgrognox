@@ -1,4 +1,3 @@
-#nullable enable
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -7,14 +6,18 @@ public class GuideArrowController : MonoBehaviour
     public Vector2 BorderOffset;
 
     [HideInInspector]
-    public Transform? Target;
+    public Transform Target;
 
     SpriteRenderer spriteRenderer;
+    bool isCollidingWithTarget;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Target = gameObject.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
+        isCollidingWithTarget = false;
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class GuideArrowController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Target == null)
+        if (Target == gameObject.transform)
         {
             spriteRenderer.enabled = false;
             return;
@@ -39,7 +42,7 @@ public class GuideArrowController : MonoBehaviour
         transform.position = Camera.main.ScreenToWorldPoint(clampedPos);
         Vector2 direction = Target.position - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        spriteRenderer.enabled = true;
+        spriteRenderer.enabled = !isCollidingWithTarget;
     }
 
     public void PointAt(GameObject target)
@@ -54,6 +57,18 @@ public class GuideArrowController : MonoBehaviour
 
     public void ClearTarget()
     {
-        Target = null;
+        Target = gameObject.transform;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.transform == Target)
+            isCollidingWithTarget = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.transform == Target)
+            isCollidingWithTarget = false;
     }
 }
