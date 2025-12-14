@@ -69,6 +69,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2522442434462612957, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522442434462612957, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -125,7 +129,7 @@ MonoBehaviour:
   MaxX: 88
   MinY: -300
   MaxY: -78
-  OffsetY: 20
+  OffsetY: 25
   AttackInterval: 3
   BeamActiveDuration: 1
   MaxOpacity: 1
