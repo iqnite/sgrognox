@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public GameObject TractorBeam;
+    public GameObject ArrowKeyGuide;
     public TextMeshProUGUI HealthText;
     public float ThrustForce;
     public float MaxSpeed;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         CurrentHealth = MaxHealth;
         spawnX = transform.position.x;
         spawnY = transform.position.y;
+        ArrowKeyGuide.SetActive(true);
     }
 
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
         if (direction != Vector2.zero)
         {
             rb.AddForce(ThrustForce * Time.deltaTime * transform.localScale.x * direction);
+            ArrowKeyGuide.SetActive(false);
         }
     }
 

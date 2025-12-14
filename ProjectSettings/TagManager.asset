@@ -57,5 +57,8 @@ TagManager:
   - name: Beam
     uniqueID: 2877590879
     locked: 0
+  - name: Overlay
+    uniqueID: 1378929917
+    locked: 0
   m_RenderingLayers:
   - Default
