@@ -4,6 +4,7 @@ public class GoalController : MonoBehaviour
 {
     public GameObject GameManager;
     public GameObject TractorBeam;
+    public float RotationSpeed;
 
     GameManager gameManager;
     TractorBeamController tractorBeamController;
@@ -18,7 +19,7 @@ public class GoalController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + RotationSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
