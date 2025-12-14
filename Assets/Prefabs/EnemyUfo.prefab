@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 120
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 120
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 120
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,7 +125,7 @@ MonoBehaviour:
   MaxX: 88
   MinY: -300
   MaxY: -78
-  OffsetY: 25
+  OffsetY: 20
   AttackInterval: 3
   BeamActiveDuration: 1
   MaxOpacity: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class CarController : MonoBehaviour
 {
+    public Sprite[] CarSprites;
     public float[] Lanes;
     public float LaneY;
     public float LeftX;
@@ -19,6 +20,7 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = CarSprites[Random.Range(0, CarSprites.Length)];
         gameObject.layer = LayerMask.NameToLayer("Car");
         direction = Random.Range(0, 2) * 2 - 1; // -1 or 1
         transform.position = new Vector3(
@@ -31,7 +33,7 @@ public class CarController : MonoBehaviour
     void Update()
     {
         if (direction == 0) return;
-        spriteRenderer.flipX = direction == -1;
+        spriteRenderer.flipX = direction == 1;
         if (Mathf.Round(transform.rotation.z) == 0)
         {
             rb.MovePosition(rb.position + Speed * direction * Time.deltaTime * Vector2.right);

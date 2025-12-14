@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class HelicopterController : MonoBehaviour
 {
     public GameObject BulletPrefab;
@@ -16,6 +17,7 @@ public class HelicopterController : MonoBehaviour
     public float SeparationForce;
 
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     GameObject player;
     float nextShootTime;
     bool isPlayerInRange;
@@ -24,6 +26,7 @@ public class HelicopterController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("Player");
         isPlayerInRange = false;
         nextShootTime = Time.time + Random.Range(MinShootCooldown, MaxShootCooldown);
@@ -50,6 +53,8 @@ public class HelicopterController : MonoBehaviour
             Shoot();
             nextShootTime = Time.time + Random.Range(MinShootCooldown, MaxShootCooldown);
         }
+
+        spriteRenderer.flipX = transform.position.x < player.transform.position.x;
     }
 
     void ClampPosition()

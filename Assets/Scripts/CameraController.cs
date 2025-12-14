@@ -4,10 +4,6 @@ public class CameraController : MonoBehaviour
 {
     public GameObject Player;
     public float SizeRatio;
-    public float MinX;
-    public float MaxX;
-    public float MinY;
-    public float MaxY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,9 +20,7 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         Vector3 playerPosition = Player.transform.position;
-        float limitedX = Mathf.Clamp(playerPosition.x, MinX, MaxX);
-        float limitedY = Mathf.Clamp(playerPosition.y, MinY, MaxY);
-        Vector3 newPosition = new(limitedX, limitedY, transform.position.z);
+        Vector3 newPosition = new(playerPosition.x, playerPosition.y, transform.position.z);
         transform.position = newPosition;
         Camera.main.orthographicSize = Player.transform.localScale.x * SizeRatio;
     }

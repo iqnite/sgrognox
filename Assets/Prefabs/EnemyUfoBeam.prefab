@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2522442434462612957, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3387112321272384836, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: ObjectName
       value: Enemy Beam

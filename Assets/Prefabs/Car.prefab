@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.36
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.014756
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.36
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1214313424857511166, guid: c6932663e6466a844bab5b0b9dac49a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119,12 +119,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9fb0bc4963917479b6c28f888e66f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarController
+  CarSprites:
+  - {fileID: 8282042346942556162, guid: 2efb5270ef7d8bb4ab163b231cd94079, type: 3}
+  - {fileID: 3142733431838295593, guid: 2efb5270ef7d8bb4ab163b231cd94079, type: 3}
+  - {fileID: -7084217537203443707, guid: 2efb5270ef7d8bb4ab163b231cd94079, type: 3}
+  - {fileID: -8290738097171246125, guid: 2efb5270ef7d8bb4ab163b231cd94079, type: 3}
   Lanes:
   - 0
   - 0.9
   LaneY: -668
-  LeftX: -114
-  RightX: 120
+  LeftX: -100
+  RightX: 110
   Speed: 20
 --- !u!212 &5539369788700173062
 SpriteRenderer:
@@ -175,8 +180,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.89433956, g: 0.15375096, b: 0.13330711, a: 1}
+  m_Sprite: {fileID: 8282042346942556162, guid: 2efb5270ef7d8bb4ab163b231cd94079, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -223,11 +228,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 6.51, y: 2.01}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.51, y: 2.01}
   m_EdgeRadius: 0
