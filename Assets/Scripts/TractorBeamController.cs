@@ -12,11 +12,12 @@ public class TractorBeamController : MonoBehaviour
 
     [HideInInspector]
     public GameObject CapturedObject = null;
+    [HideInInspector]
+    public bool IsActive;
 
     Collider2D beamCollider;
     Material material;
     GuideArrowController guideArrowController;
-    bool isActive;
     float targetOpacity;
     // Vector3 previousParentPosition;
 
@@ -41,7 +42,7 @@ public class TractorBeamController : MonoBehaviour
 
     void CheckCollisions()
     {
-        if (!isActive || CapturedObject != null) return;
+        if (!IsActive || CapturedObject != null) return;
         Collider2D[] touchingColliders = new Collider2D[10];
         _ = beamCollider.Overlap(ContactFilter2D.noFilter, touchingColliders);
         foreach (Collider2D collider in touchingColliders)
@@ -65,11 +66,11 @@ public class TractorBeamController : MonoBehaviour
     {
         if (CapturedObject == null)
         {
-            if (isActive && material.color.a == targetOpacity) Toggle(false);
+            if (IsActive && material.color.a == targetOpacity) Toggle(false);
             guideArrowController.ClearTarget();
             return;
         }
-        if (!isActive)
+        if (!IsActive)
         {
             // Vector3 velocity = (transform.parent.position - previousParentPosition) / Time.deltaTime;
             // Rigidbody2D capturedRb = capturedObject.GetComponent<Rigidbody2D>();
@@ -83,9 +84,9 @@ public class TractorBeamController : MonoBehaviour
 
     public void Toggle(bool? value = null)
     {
-        isActive = value ?? !isActive;
-        beamCollider.enabled = isActive;
-        targetOpacity = isActive ? MaxOpacity : MinOpacity;
+        IsActive = value ?? !IsActive;
+        beamCollider.enabled = IsActive;
+        targetOpacity = IsActive ? MaxOpacity : MinOpacity;
     }
 
     void UpdateOpacity()
