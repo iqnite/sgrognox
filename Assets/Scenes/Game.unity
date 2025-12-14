@@ -1508,9 +1508,10 @@ MonoBehaviour:
   TractorBeam: {fileID: 1107760504}
   ArrowKeyGuide: {fileID: 228923173}
   HealthText: {fileID: 737256100}
+  DamagedColor: {r: 0.78867924, g: 0.24850833, b: 0.24850833, a: 1}
+  ColorStep: 20
   ThrustForce: 1150
   MaxSpeed: 20
-  RotationAdjustSpeed: 100
   MaxHealth: 100
 --- !u!212 &311849472
 SpriteRenderer:

@@ -9,22 +9,28 @@ public class PlayerController : MonoBehaviour
     public GameObject TractorBeam;
     public GameObject ArrowKeyGuide;
     public TextMeshProUGUI HealthText;
+    public Color DamagedColor;
+    public float ColorStep;
     public float ThrustForce;
     public float MaxSpeed;
-    public float RotationAdjustSpeed;
     public int MaxHealth;
     public int CurrentHealth
     {
         get => currentHealth;
         set
         {
+            int previousHealth = currentHealth;
             currentHealth = Mathf.Clamp(value, 0, MaxHealth);
             UpdateHealthText();
+            if (currentHealth < previousHealth) targetColor = DamagedColor;
         }
     }
 
     Rigidbody2D rb;
-    int currentHealth = 100;
+    SpriteRenderer spriteRenderer;
+    int currentHealth;
+    Color originalColor;
+    Color targetColor;
     float spawnX;
     float spawnY;
     bool spaceKeyIsAlreadyPressed = false;
@@ -33,7 +39,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentHealth = MaxHealth;
+        originalColor = spriteRenderer.color;
+        targetColor = originalColor;
         spawnX = transform.position.x;
         spawnY = transform.position.y;
         ArrowKeyGuide.SetActive(true);
@@ -45,6 +54,7 @@ public class PlayerController : MonoBehaviour
         Move();
         ToggleTractorBeam();
         LimitSpeed();
+        UpdateColor();
     }
 
     void Move()
@@ -113,5 +123,14 @@ public class PlayerController : MonoBehaviour
     void UpdateHealthText()
     {
         HealthText.text = "Health: " + CurrentHealth + "%";
+    }
+
+    void UpdateColor()
+    {
+        spriteRenderer.color = Color.Lerp(spriteRenderer.color, targetColor, ColorStep * Time.deltaTime);
+        if (spriteRenderer.color == targetColor && targetColor != originalColor)
+        {
+            targetColor = originalColor;
+        }
     }
 }
