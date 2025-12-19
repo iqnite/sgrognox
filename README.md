@@ -2,7 +2,7 @@
 
 A game where you control a UFO and abduct cars and stuff while avoiding obstacles.
 
-[👉 Play the game here](https://slashlab.itch.io/sgrognox)
+[👉 Play the game on itch.io](https://slashlab.itch.io/sgrognox)
 
 ## Installation from Source
 
